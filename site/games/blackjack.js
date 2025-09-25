@@ -77,6 +77,9 @@ function startBlackjack() {
     document.querySelector("#blackjack-dealer-content .hand").innerHTML = "";
     document.querySelector("#blackjack-player-content .hand").innerHTML = "";
     document.querySelector("#blackjack-result").textContent = "";
+    
+    document.getElementById("dealer-score").textContent = "?";
+    document.getElementById("player-score").textContent = "0";
 
     dealCard(dealerHand, "#blackjack-dealer-content", true);
     dealCard(dealerHand, "#blackjack-dealer-content");
