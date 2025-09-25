@@ -13,16 +13,39 @@
         <p>brought to you by nimitapps.com</p>
     </div>
     <div class="tab">
-        <button onclick="gamble(`dice`)" class="tablinks">dice</button>
+        <!--<button onclick="gamble(`dice`)" class="tablinks">dice</button>-->
         <button onclick="gamble(`blackjack`)" class="tablinks">blackjack</button>
-        <button onclick="gamble(`slots`)" class="tablinks">slots</button>
-        <button onclick="gamble(`roulette`)" class="tablinks">roulette</button>
+        <!--<button onclick="gamble(`slots`)" class="tablinks">slots</button>-->
+        <!--<button onclick="gamble(`roulette`)" class="tablinks">roulette</button>-->
     </div>
     <div class="game-area">
         <div class="game" id="intro-menu">
             <h2 class="gamename">choose a game to play</h2>
-            <img src="assets/gamblecore.png" alt="dice" onclick="gamble(`dice`)">
+            <img src="assets/gamblecore.png" alt="gamblecore logo" style="width:300px;height:300px;">
         </div>
+
+        <div class="game" id="blackjack" style="display:none;">
+            <script src="games/blackjack.js"></script>
+            <h2 class="gamename">blackjack</h2>
+            <div id="blackjack-dealer-content">
+                <h4>dealer</h4>
+                <div class="hand"></div>
+                <div class="score">Total: <span id="dealer-score">?</span></div>
+            </div>
+            <div id="blackjack-player-content">
+                <h4>player</h4>
+                <div class="hand"></div>
+                <div class="score">Total: <span id="player-score">0</span></div>
+            </div>
+            <div class="blackjack-controls">
+                <button onclick="hit()">Hit</button>
+                <button onclick="stand()">Stand</button>
+            </div>
+            <p id="blackjack-result" style="text-align:center;margin-top:10px;"></p>
+            <div id="new-game-button-container"></div>
+        </div>
+
+    </div>
     </div>
 </body>
 

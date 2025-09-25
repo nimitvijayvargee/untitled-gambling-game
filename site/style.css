@@ -100,11 +100,10 @@ img {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    
+
     border: 2px solid var(--brightBlack);
     padding: 2px;
     border-radius: 20px;
-
 }
 .gamename {
     text-align: center;
@@ -129,8 +128,6 @@ img {
 /* Tabs */
 .tab {
     overflow: hidden;
-    border: 1px solid var(--brightBlack);
-    background-color: var(--brightBlack);
     border-bottom: none;
 }
 
@@ -146,7 +143,7 @@ button {
 }
 
 .tab button {
-    background-color: inherit;
+    background-color: var(--brightBlack);
     float: left;
     border: none;
     outline: none;
@@ -161,3 +158,66 @@ button {
     padding: 10px;
     background-color: var(--black);
 }
+
+/* Blackjack */
+#blackjack-dealer-content,
+#blackjack-player-content {
+    flex: 1;
+    background: var(--black);
+    border: 2px solid var(--brightBlack);
+    padding: 10px;
+    margin: 5vh;
+    text-align: center;
+}
+
+.hand {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.card {
+    width: 60px;
+    height: 90px;
+    border-radius: 6px;
+    background: var(--black);
+    color: var(--white);
+    border: 3px solid var(--brightBlack);
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+
+    font-size: xx-large;
+}
+
+.suit-unknown {
+    background: var(--black);
+    color: var(--white);
+    border: 3px solid var(--brightBlack);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blackjack-controls,
+#new-game-button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.blackjack-controls button,
+#new-game-button-container button {
+    margin: 0 5px;
+    padding: 8px 16px;
+    border: 2px solid var(--brightBlack);
+    color: var(--white);
+    font-size: medium;
+    cursor: pointer;
+    background-color: var(--black);
+}
+
