@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>untitled gambling game</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="script.js" defer></script>
-    </head>
-    <body>
-        <div>
-            helo worl
+
+<head>
+    <title>untitled gambling game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div>
+        <h1>untitled gambling game</h1>
+        <p>brought to you by nimitapps.com</p>
+    </div>
+    <div class="tab">
+        <button onclick="gamble(`dice`)" class="tablinks">dice</button>
+        <button onclick="gamble(`blackjack`)" class="tablinks">blackjack</button>
+        <button onclick="gamble(`slots`)" class="tablinks">slots</button>
+        <button onclick="gamble(`roulette`)" class="tablinks">roulette</button>
+    </div>
+    <div class="game-area">
+        <div class="game" id="intro-menu">
+            <h2 class="gamename">choose a game to play</h2>
+            <img src="assets/gamblecore.png" alt="dice" onclick="gamble(`dice`)">
         </div>
-    </body>
+    </div>
+</body>
+
 </html>
