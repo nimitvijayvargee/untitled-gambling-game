@@ -77,25 +77,29 @@ function startBlackjack() {
     document.querySelector("#blackjack-dealer-content .hand").innerHTML = "";
     document.querySelector("#blackjack-player-content .hand").innerHTML = "";
     document.querySelector("#blackjack-result").textContent = "";
-    
-    document.getElementById("dealer-score").textContent = "?";
-    document.getElementById("player-score").textContent = "0";
+
+    document.querySelector("#dealer-score").textContent = "?";
+    document.querySelector("#player-score").textContent = "0";
 
     dealCard(dealerHand, "#blackjack-dealer-content", true);
     dealCard(dealerHand, "#blackjack-dealer-content");
 
     dealCard(playerHand, "#blackjack-player-content");
     dealCard(playerHand, "#blackjack-player-content");
-    document.getElementById("player-score").textContent = handValue(playerHand);
+    document.querySelector("#player-score").textContent = handValue(playerHand);
+
+    document.querySelector(".blackjack-controls").style.display = "block";
 }
 function hit() {
     dealCard(playerHand, "#blackjack-player-content");
     if (handValue(playerHand) > 21) {
         document.querySelector("#blackjack-result").textContent = "You busted!";
+        document.querySelector(".blackjack-controls").style.display = "none";
         newGameButton();
     }
 }
-function stand() {
+async function stand() {
+
     if (dealerHiddenCard && dealerHiddenDiv) {
         dealerHiddenDiv.classList.remove("suit-unknown");
         dealerHiddenDiv.textContent = "";
@@ -103,10 +107,13 @@ function stand() {
         dealerHiddenCard = null;
     }
 
-    while (handValue(dealerHand) < 17) {
+    while (handValue(dealerHand) < 17 && handValue(dealerHand) < handValue(playerHand)) {
+        await new Promise(r => setTimeout(r, 800));
         dealCard(dealerHand, "#blackjack-dealer-content");
     }
-    document.getElementById("dealer-score").textContent = handValue(dealerHand);
+    document.querySelector(".blackjack-controls").style.display = "none";
+
+    document.querySelector("#dealer-score").textContent = handValue(dealerHand);
     const playerVal = handValue(playerHand);
     const dealerVal = handValue(dealerHand);
     let result = "";
