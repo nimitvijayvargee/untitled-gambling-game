@@ -13,10 +13,9 @@
         <p>brought to you by nimitapps.com</p>
     </div>
     <div class="tab">
-        <!--<button onclick="gamble(`dice`)" class="tablinks">dice</button>-->
         <button onclick="gamble(`blackjack`)" class="tablinks">blackjack</button>
-        <!--<button onclick="gamble(`slots`)" class="tablinks">slots</button>-->
-        <!--<button onclick="gamble(`roulette`)" class="tablinks">roulette</button>-->
+        <button onclick="gamble(`roulette`)" class="tablinks">roulette</button>
+        <button onclick="gamble(`slots`)" class="tablinks">slots</button>
     </div>
     <div class="game-area">
         <div class="game" id="intro-menu">
@@ -45,6 +44,51 @@
             <div id="new-game-button-container"></div>
         </div>
 
+        <div class="game" id="roulette" style="display:none;">
+            <script src="games/roulette.js"></script>
+            <h2 class="gamename">roulette</h2>
+            <div class="roulette-content">
+                <span>V</span>
+                <div id="roulette-wheel-container">
+                    <div class="roulette-wheel" id="roulette-wheel"></div>
+                </div>
+                <div class="roulette-controls" style="text-align:center;margin-top:10px;">
+                    <span>Place your bet:</span>
+                    <div class="roulette-bets">
+                        <div class="bet-option">
+                            <input type="radio" id="red" name="roulette-bet" value="red" checked />
+                            <label for="red">Red</label>
+                        </div>
+
+                        <div class="bet-option">
+                            <input type="radio" id="black" name="roulette-bet" value="black" />
+                            <label for="black">Black</label>
+                        </div>
+                    </div>
+                    <button onclick="spinRoulette()" id="roulette-spin">Spin</button>
+                    <br />
+                    <span id="roulette-result"></span>
+                </div>
+
+                <p id="roulette-result" style="text-align:center;margin-top:10px;"></p>
+            </div>
+        </div>
+        <div class="game" id="slots" style="display:none;">
+            <script src="games/slots.js"></script>
+            <h2 class="gamename">slots</h2>
+            <div class="slots-reels">
+                <div class="reel" id="reel1">?</div>
+                <div class="reel" id="reel2">?</div>
+                <div class="reel" id="reel3">?</div>
+            </div>
+            <div class="slots-controls" style="text-align:center;margin-top:10px;">
+                <button onclick="spinSlots()" id="slots-spin">Spin</button>
+                <br />
+                <span id="slots-result"></span>
+            </div>
+            <p id="slots-result" style="text-align:center;margin-top:10px;"></p>
+
+        </div>
     </div>
     </div>
 </body>

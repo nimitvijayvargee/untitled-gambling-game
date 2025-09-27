@@ -107,11 +107,13 @@ img {
     padding: 2px;
     border-radius: 20px;
 }
+
 .gamename {
     text-align: center;
     font-size: xx-large;
     margin-bottom: 0;
 }
+
 /* Buttons */
 .buttons {
     margin: 0;
@@ -223,3 +225,125 @@ button {
     background-color: var(--black);
 }
 
+/*  Roulette */
+.roulette-content {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.roulette-wheel {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 4px solid var(--brightBlack);
+  background: conic-gradient(
+    var(--brightRed) 0deg 15deg,
+    var(--black) 15deg 45deg,
+    var(--brightRed) 45deg 75deg,
+    var(--black) 75deg 105deg,
+    var(--brightRed) 105deg 135deg,
+    var(--black) 135deg 165deg,
+    var(--brightRed) 165deg 195deg,
+    var(--black) 195deg 225deg,
+    var(--brightRed) 225deg 255deg,
+    var(--black) 255deg 285deg,
+    var(--brightRed) 285deg 315deg,
+    var(--black) 315deg 345deg,
+    var(--brightRed) 345deg 360deg
+  );
+  margin: 20px auto;
+  position: relative;
+
+  transition: transform 4s ease-out;
+}
+
+
+.roulette-bets {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bet-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 2px solid var(--brightBlack);
+    cursor: pointer;
+}
+
+.bet-option label {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.bet-option input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--brightBlack);
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.bet-option input[type="radio"]:checked#red {
+    background-color: var(--brightRed);
+    border-color: var(--brightRed);
+}
+
+.bet-option input[type="radio"]:checked#black {
+    background-color: var(--brightBlack);
+    border-color: var(--brightBlack);
+}
+
+#roulette-spin {
+    background-color: var(--brightBlack);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    border-right: 2px solid var(--black);
+    color: var(--black);
+}
+
+#roulette-spin:disabled {
+    background-color: var(--brightBlack);
+    color: var(--white);
+    cursor: not-allowed;
+}
+
+/* Slots */
+
+.slots-reels {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.reel {
+    width: 70px;
+    height: 70px;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--brightBlack);
+    border-radius: 12px;
+    background: var(--black);
+    color: var(--brightCyan);
+}
+
+#slots-spin {
+    margin: 0 5px;
+    padding: 8px 16px;
+    border: 2px solid var(--brightBlack);
+    color: var(--white);
+    font-size: medium;
+    cursor: pointer;
+    background-color: var(--black);
+    margin-bottom: 20px;
+}
