@@ -1,9 +1,11 @@
 
-const symbols = ["🍒", "🍋", "🔔", "⭐", "🍀", "🪩", "7"];
-
+const symbols = ["🍒", "🍋", "🔔", "⭐", "🍀", "🪩"];
+let spinnning = false;
 function spinSlots() {
+    if (spinnning) return;
+    if (!incrementMoney(-10)) return;
+    spinnning = true;
     document.getElementById("slots-result").textContent = "";
-    document.getElementById("slots-spin").onclick = null;
 
     const reels = [
         document.getElementById("reel1"),
@@ -26,10 +28,13 @@ function spinSlots() {
     setTimeout(() => {
         if (results.every(sym => sym === results[0])) {
             resultText.textContent = "gg";
+            incrementMoney(300); //30x win
         } else {
             resultText.textContent = "lmao no";
         }
+
+        spinnning = false;
     }, 1000);
-    
+
     document.getElementById("slots-spin").onclick = spinSlots;
 }

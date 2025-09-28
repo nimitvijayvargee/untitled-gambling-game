@@ -68,6 +68,8 @@ function newGameButton() {
     document.getElementById("new-game-button-container").appendChild(new_game_button);
 }
 function startBlackjack() {
+    if (!incrementMoney(-50)) return;
+
     document.getElementById("new-game-button-container").innerHTML = "";
     newDeck();
     playerHand = [];
@@ -121,6 +123,8 @@ async function stand() {
     else if (dealerVal > 21 || playerVal > dealerVal) result = "You win!";
     else if (playerVal < dealerVal) result = "Dealer wins!";
     else result = "Push!";
+    if (result === "You win!") incrementMoney(100);
+    else if (result === "Push!") incrementMoney(50);
     document.querySelector("#blackjack-result").textContent = result;
     newGameButton();
 }

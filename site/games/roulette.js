@@ -1,30 +1,28 @@
 let currentRotation = 0;
+let spinning = false;
 function spinRoulette() {
-    document.getElementById("roulette-spin").onclick = null;
+    if (spinning) return;
+    else spinning = true;
+    if (!incrementMoney(-50)) return;
     document.getElementById("roulette-result").innerText = "Spinning...";
     const wheelContainer = document.getElementById("roulette-wheel-container");
     const wheel = document.getElementById("roulette-wheel");
 
     const bet = document.querySelector('input[name="roulette-bet"]:checked').value;
-    console.log(bet);
 
-    resultNumber = 13
-    while (resultNumber === 13) resultNumber = 1 + Math.floor(Math.random() * 12);
-
-    const randomDegree = resultNumber * 30 + 360 * 8;
-    currentRotation += randomDegree
-    console.log(currentRotation , randomDegree);
+    const randomDegree = Math.floor(Math.random() * 120) * 30 + 1080;
+    currentRotation += randomDegree;
     wheel.style.transform = `rotate(${currentRotation}deg)`;
 
     let result = "Lose!";
-    if ([1,3,5,7,9,11].includes(resultNumber)) resultNumber = "black";
-    if ([2,4,6,8,10,12].includes(resultNumber)) resultNumber = "red";
-    if (bet === resultNumber) result = "Win!";
-    console.log(resultNumber);  
+    let resultColour = null;
+    if (currentRotation % 60 === 0) resultColour = "red";
+    if (currentRotation % 60 === 30) resultColour = "black";
+    if (bet === resultColour) result = "Win!";
 
     setTimeout(() => {
         document.getElementById("roulette-result").innerText = "You " + result;
+        if (result == "Win!") incrementMoney(100);
+        spinning = false;
     }, 4000);
-
-    document.getElementById("roulette-spin").onclick = spinRoulette;
 }

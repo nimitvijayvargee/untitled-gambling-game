@@ -16,6 +16,7 @@
         <button onclick="gamble(`blackjack`)" class="tablinks">blackjack</button>
         <button onclick="gamble(`roulette`)" class="tablinks">roulette</button>
         <button onclick="gamble(`slots`)" class="tablinks">slots</button>
+        <button class="balance" id="balance">Balance: $1000</button>
     </div>
     <div class="game-area">
         <div class="game" id="intro-menu">
@@ -41,7 +42,9 @@
                 <button onclick="stand()">Stand</button>
             </div>
             <p id="blackjack-result" style="text-align:center;margin-top:10px;"></p>
-            <div id="new-game-button-container"></div>
+            <div id="new-game-button-container">
+                <button onclick="startBlackjack()" class="new-game-button">New Game</button>
+            </div>
         </div>
 
         <div class="game" id="roulette" style="display:none;">
@@ -65,7 +68,7 @@
                             <label for="black">Black</label>
                         </div>
                     </div>
-                    <button onclick="spinRoulette()" id="roulette-spin">Spin</button>
+                    <button onclick="spinRoulette()" id="roulette-spin">Spin ($50)</button>
                     <br />
                     <span id="roulette-result"></span>
                 </div>
@@ -73,6 +76,7 @@
                 <p id="roulette-result" style="text-align:center;margin-top:10px;"></p>
             </div>
         </div>
+
         <div class="game" id="slots" style="display:none;">
             <script src="games/slots.js"></script>
             <h2 class="gamename">slots</h2>
@@ -82,7 +86,7 @@
                 <div class="reel" id="reel3">?</div>
             </div>
             <div class="slots-controls" style="text-align:center;margin-top:10px;">
-                <button onclick="spinSlots()" id="slots-spin">Spin</button>
+                <button onclick="spinSlots()" id="slots-spin">Spin ($10)</button>
                 <br />
                 <span id="slots-result"></span>
             </div>

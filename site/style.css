@@ -126,13 +126,13 @@ img {
     padding: 10px 20px;
     text-decoration: none;
     cursor: pointer;
-    border: 2px solid var(--brightBlack);
 }
 
 /* Tabs */
 .tab {
     overflow: hidden;
     border-bottom: none;
+    padding: none;
 }
 
 button {
@@ -141,20 +141,31 @@ button {
     padding: 0;
 }
 
-.tab button:hover {
+.tablinks:hover {
     background-color: var(--white);
     color: var(--black);
 }
 
 .tab button {
     background-color: var(--brightBlack);
-    float: left;
-    border: none;
     outline: none;
-    cursor: pointer;
     padding: 14px 16px;
-    border-right: 2px solid var(--black);
     color: var(--black);
+}
+
+.tablinks {
+    float: left;
+    border-right: 2px solid var(--black);
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    cursor: pointer;
+}
+
+#balance {
+    float: right;
+    cursor: default;
+    border: none;
 }
 
 .game-area {
@@ -232,29 +243,27 @@ button {
 }
 
 .roulette-wheel {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  border: 4px solid var(--brightBlack);
-  background: conic-gradient(
-    var(--brightRed) 0deg 15deg,
-    var(--black) 15deg 45deg,
-    var(--brightRed) 45deg 75deg,
-    var(--black) 75deg 105deg,
-    var(--brightRed) 105deg 135deg,
-    var(--black) 135deg 165deg,
-    var(--brightRed) 165deg 195deg,
-    var(--black) 195deg 225deg,
-    var(--brightRed) 225deg 255deg,
-    var(--black) 255deg 285deg,
-    var(--brightRed) 285deg 315deg,
-    var(--black) 315deg 345deg,
-    var(--brightRed) 345deg 360deg
-  );
-  margin: 20px auto;
-  position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 4px solid var(--brightBlack);
+    background: conic-gradient(var(--brightRed) 0deg 15deg,
+            var(--black) 15deg 45deg,
+            var(--brightRed) 45deg 75deg,
+            var(--black) 75deg 105deg,
+            var(--brightRed) 105deg 135deg,
+            var(--black) 135deg 165deg,
+            var(--brightRed) 165deg 195deg,
+            var(--black) 195deg 225deg,
+            var(--brightRed) 225deg 255deg,
+            var(--black) 255deg 285deg,
+            var(--brightRed) 285deg 315deg,
+            var(--black) 315deg 345deg,
+            var(--brightRed) 345deg 360deg);
+    margin: 20px auto;
+    position: relative;
 
-  transition: transform 4s ease-out;
+    transition: transform 4s ease-out;
 }
 
 
